@@ -1,0 +1,78 @@
+
+.active {
+  background-color: slategrey;
+}
+
+.theme-light {
+  --color-primary: #0060df;
+  --color-secondary: #fbfbfe;
+  --color-accent: #fd6f53;
+  --font-color: #000000;
+}
+
+.theme-dark {
+  --color-primary: #17ed90;
+  --color-secondary: #243133;
+  --color-accent: #12cdea;
+  --font-color: #ffffff;
+}
+
+.mat-toolbar.mat-primary {
+  background: var(--color-primary);
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+#main-container {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  min-width: fit-content;
+  background: var(--color-secondary);
+}
+
+.container h1, h2, h3 {
+  color: var(--font-color);
+  margin-right: 1rem;
+}
+
+.container .mat-button {
+  color: var(--font-color);
+}
+
+.theme-color {
+  margin: 1rem;
+  color: var(--font-color);
+  font-size: medium;
+}
+
+.temp-scale {
+  margin: 1rem;
+  color: var(--font-color);
+  font-size: medium;
+}
+
+
+.mat-form-field-underline {
+  background-color: var(--font-color) !important;
+}
+
+.mat-form-field-label {
+  color: var(--font-color) !important;
+}
+
+.field-autocomplete {
+  border-color: var(--font-color);
+}
+
+.forecast {
+  border-color: var(--font-color);
+}
+
+.mat-input-element {
+  color: var(--font-color) !important;
+}

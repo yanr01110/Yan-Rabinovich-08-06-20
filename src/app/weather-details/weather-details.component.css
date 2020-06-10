@@ -1,0 +1,93 @@
+.weather-container {
+  width: 100%;
+}
+
+.city-autocomplete {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.field-autocomplete {
+  width: 40%;
+  border-style: solid;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  min-width: fit-content;
+  margin: 2rem;
+  border-radius: 1rem;
+}
+
+.current-weather {
+  display: flex;
+}
+
+.card {
+  width: -webkit-fill-available;
+  border-radius: 1rem;
+  background-color: aliceblue;
+  margin: 0.5rem;
+}
+
+.weather-icon {
+  width: 7rem;
+  height: 4rem;
+}
+
+.content-weather {
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+  padding: 1rem;
+}
+
+.searchTodayItem {
+  display: flex;
+  justify-content: space-between ;
+  margin: 1rem;
+}
+
+.five-days {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.favorite-icon{
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.favorites {
+  box-sizing: border-box;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.five-days-forecast {
+  text-align: center;
+  font-size: xxx-large;
+  margin-bottom: 4rem;
+}
+
+
+.icon {
+  margin: 0.2rem;
+  align-self: center;
+}
+
+.loadingFiveDays {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

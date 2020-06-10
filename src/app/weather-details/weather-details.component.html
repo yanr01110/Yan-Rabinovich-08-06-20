@@ -1,0 +1,72 @@
+<div class="weather-container">
+
+  <form class="city-autocomplete">
+    <mat-form-field class="field-autocomplete">
+      <input type="text"
+             placeholder="Search City"
+             aria-label="City"
+             matInput
+             [formControl]="searchControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let city of Cities | async" [value]="city.LocalizedName" (click)="onSelectCity(city)">
+          {{ city.LocalizedName }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <div class="forecast">
+    <div class="searchTodayItem">
+      <mat-spinner *ngIf="isLoadingCurWeather"></mat-spinner>
+
+      <div class="current-weather" *ngIf="currentWeather && !isLoadingCurWeather">
+            <div mat-card-avatar class="content-weather"><img class="weather-icon"
+              [src]="WeatherIcons[currentWeather.WeatherIcon - 1].IconUrl"></div>
+        <div class="left-weather">
+          <h3>
+            {{ selectedCity.LocalizedName }}
+          </h3>
+            <h3>
+              {{ tempCord ? (currentWeather.Temperature.Imperial.Value | number:'.0-0') : (currentWeather.Temperature.Metric.Value | number:'.0-0' ) }} {{ tempCord ? farCord : celCord }}
+            </h3>
+        </div>
+      </div>
+
+
+      <div class="favorites" *ngIf="selectedCity && !isLoadingCurWeather">
+        <div class="icon" [ngStyle]="{'color':favoriteCheck() === true ? 'goldenrod' : 'black' }">
+          <mat-icon class="favorite-icon" (mouseenter)="favoriteStatus='favorite'"
+                    (mouseleave)="favoriteCheck() ? favoriteStatus='favorite' : favoriteStatus='favorite_border'"
+                    (click)="addRemoveFavorite(selectedCity)">{{ favoriteStatus }}</mat-icon>
+        </div>
+      </div>
+    </div>
+
+
+    <h1 class="five-days-forecast" *ngIf="currentWeather">
+      {{ currentWeather.WeatherText }}
+    </h1>
+
+    <mat-spinner class="loadingFiveDays" *ngIf="isLoadingFiveDays"></mat-spinner>
+
+    <div class="five-days" *ngIf="fiveDays && !isLoadingFiveDays">
+      <mat-card class="card" *ngFor="let day of fiveDays.DailyForecasts">
+        <mat-card-header>
+          <mat-card-title>{{ day.Date | date: 'EEEE' }}</mat-card-title>
+          <mat-card-subtitle>{{ day.Day.IconPhrase }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div mat-card-avatar class="content-weather">Day<img
+            [src]="WeatherIcons[day.Day.Icon - 1].IconUrl">{{ tempCord ? this.cToF(day.Temperature.Maximum.Value) : (day.Temperature.Maximum.Value | number:'.0-0' ) }} {{ tempCord ? farCord : celCord }}
+          </div>
+          <div mat-card-avatar class="content-weather">Night<img
+            [src]="WeatherIcons[day.Night.Icon - 1].IconUrl">{{ tempCord ? this.cToF(day.Temperature.Minimum.Value) : (day.Temperature.Minimum.Value | number:'.0-0' ) }} {{tempCord ? farCord : celCord}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
