@@ -10,7 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  title = 'MedisimWeatherAssignment';
+  title = 'weather-assignment';
   themeStatus: boolean;
   tempScaleStatus: boolean;
   themeColor: string;
