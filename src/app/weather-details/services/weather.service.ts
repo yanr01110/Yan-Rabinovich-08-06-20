@@ -14,7 +14,7 @@ import {throwError} from 'rxjs';
 
 export class WeatherService {
 
-  private apiKey = 'WsAnPYv688NN4HPPxoXJfiSoOTXXrJBw';
+  private apiKey = 'ARblGdYaHVGqC1AYhm8l2aplC0QTIdgw';
   private autocompleteAPI = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=' + this.apiKey + '&q=';
   private currentConditionAPI = 'https://dataservice.accuweather.com/currentconditions/v1/';
   private fiveDaysAPI = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
